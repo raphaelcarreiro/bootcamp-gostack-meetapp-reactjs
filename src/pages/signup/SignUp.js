@@ -35,7 +35,7 @@ export default function SignUp() {
           placeholder="Sua senha secreta"
         />
         <button disabled={auth.loading} type="submit">
-          {auth.loading ? 'Aguarde...' : 'Entrar'}
+          {auth.loading ? 'Aguarde...' : 'Registrar agora!'}
         </button>
       </Form>
       <Link to="/">Já sou registrado</Link>

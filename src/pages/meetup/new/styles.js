@@ -46,9 +46,10 @@ export const Container = styled.div`
       color: #fff;
       border: 0;
       border-radius: 4px;
-      font-size: 16px;
-      padding: 0 15px;
+      font-size: 14px;
+      padding: 0 25px;
       transition: background 0.2s;
+      align-self: center;
 
       &:hover:enabled {
         background: ${darken(0.03, '#d44059')};

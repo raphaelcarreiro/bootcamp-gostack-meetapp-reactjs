@@ -2,10 +2,12 @@ import React from 'react';
 import { Container, Content, Profile } from 'components/header/styles';
 import { Link } from 'react-router-dom';
 import { signOut } from 'store/modules/auth/actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import logo from 'assets/images/meetapp_logo.svg';
 
 function Header() {
+  const user = useSelector(state => state.user);
+  console.log(user);
   const dispatch = useDispatch();
 
   function handleSignOut() {
@@ -23,7 +25,7 @@ function Header() {
         <aside>
           <Profile>
             <div>
-              <strong>Raphael Carreiro</strong>
+              <strong>{user.profile.name}</strong>
               <Link to="/profile">Meu perfil</Link>
             </div>
             <button type="button" onClick={handleSignOut}>
