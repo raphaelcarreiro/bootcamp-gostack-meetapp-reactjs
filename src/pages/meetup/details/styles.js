@@ -81,7 +81,6 @@ export const ImageWrapper = styled.div`
   border-radius: 4px;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
 
   > img {
     height: 300px;
