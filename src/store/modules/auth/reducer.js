@@ -33,6 +33,13 @@ export default function auth(state = INITIAL_STATE, action) {
         token: action.token,
       };
     }
+    case '@auth/SIGN_OUT': {
+      return {
+        ...state,
+        token: null,
+        signed: false,
+      };
+    }
     default:
       return state;
   }

@@ -2,7 +2,7 @@ import { all, takeLatest, call, put } from 'redux-saga/effects';
 import api from 'services/api';
 import { toast } from 'react-toastify';
 import history from 'services/history';
-import { signInSuccess, signInFailure, setToken } from './actions';
+import { signInSuccess, signInFailure } from './actions';
 
 export function* signIn({ email, password }) {
   try {
@@ -11,7 +11,6 @@ export function* signIn({ email, password }) {
     const { token, user } = response.data;
 
     yield put(signInSuccess(token, user));
-    localStorage.setItem('meetapp', JSON.stringify({ token }));
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
@@ -42,7 +41,22 @@ export function* signUp({ name, email, password }) {
   }
 }
 
+export function setToken({ payload }) {
+  if (!payload) return;
+  const { token } = payload.auth;
+
+  if (token) {
+    api.defaults.headers.Authorization = `Bearer ${token}`;
+  }
+}
+
+export function signOut() {
+  history.push('/');
+}
+
 export default all([
+  takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
   takeLatest('@auth/SIGN_UP_REQUEST', signUp),
+  takeLatest('@auth/SIGN_OUT', signOut),
 ]);

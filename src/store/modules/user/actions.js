@@ -1,20 +1,19 @@
-export function signUpRequest(name, email, password) {
+export function updateProfileRequest(data) {
   return {
-    type: '@user/SIGN_UP_REQUEST',
-    name,
-    email,
-    password,
+    type: '@user/UPDATE_PROFILE_REQUEST',
+    payload: { data },
   };
 }
 
-export function signUpSuccess() {
+export function updateProfileSuccess(data) {
   return {
-    type: '@user/SIGN_UP_SUCCESS',
+    type: '@user/UPDATE_PROFILE_SUCCESS',
+    data,
   };
 }
 
-export function signUpFailure() {
+export function updateProfileFailure() {
   return {
-    type: '@user/SIGN_UP_FAILURE',
+    type: '@user/UPDATE_FAILURE',
   };
 }

@@ -29,9 +29,8 @@ export function signUpRequest(name, email, password) {
   };
 }
 
-export function setToken(token) {
+export function signOut() {
   return {
-    type: '@auth/SET_TOKEN',
-    token,
+    type: '@auth/SIGN_OUT',
   };
 }

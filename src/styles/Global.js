@@ -23,7 +23,7 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
-  input, button, body {
+  input, button, body, textarea {
     font: 14px 'Roboto', sans-serif;
   }
 
